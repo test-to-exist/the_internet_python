@@ -1,24 +1,19 @@
 import unittest
 
-from selenium import webdriver
-
+from locators.locators import MainPageLocators
 from pages.broken_images import BrokenImages
-from pages.main import MainPage
+from pages.main_page import MainPage
+from tests.base_test_case import BaseTestCase
 
 
-class BrokenImagesTest(unittest.TestCase):
-    def setUp(self) -> None:
-        self.driver = webdriver.Chrome()
+class BrokenImagesTest(BaseTestCase):
 
     def test_broken_images(self):
-        main_page = MainPage(self.driver, 'http://the-internet.herokuapp.com')
-        main_page.go_to_page('broken_images')
+        main_page = MainPage(self.driver)
+        main_page.go_to_page(MainPageLocators.BROKEN_IMAGES)
 
-        broken_images_page = BrokenImages(self.driver, 'http://the-internet.herokuapp.com')
+        broken_images_page = BrokenImages(self.driver)
         broken_images_page.check_broken_images()
-
-    def tearDown(self) -> None:
-        self.driver.close()
 
 
 if __name__ == '__main__':

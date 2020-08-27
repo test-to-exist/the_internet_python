@@ -1,24 +1,20 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import time
 
-from base import BasePage
-from time import time
+from locators.locators import AddRemoveElementsLocators
+from pages.base_page import BasePage
 
 
 class AddRemoveElements(BasePage):
 
-    def add_and_remove(self):
-        example_btn = self.driver.find_element_by_css_selector('div.example > button')
+    def click_add_element_btn(self, nb_times=7):
+        example_btn = self.driver.find_element(*AddRemoveElementsLocators.EXAMPLE_BUTTON)
 
-        for i in range(0, 7):
+        for i in range(0, nb_times):
             example_btn.click()
             time.sleep(0.2)
 
-        time.sleep(0.5)
-        elements = WebDriverWait(self.driver, 30).until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div#elements > button.added-manually')))
-
-        for el in elements:
-            el.click()
+    def click_all_delete_buttons(self):
+        delete_buttons = self.driver.find_elements(*AddRemoveElementsLocators.ADDED_MANUALLY_BUTTONS)
+        for btn in delete_buttons:
+            btn.click()
             time.sleep(0.2)
