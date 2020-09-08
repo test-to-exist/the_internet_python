@@ -1,7 +1,5 @@
 import time
-
 from selenium.webdriver.remote.webdriver import WebDriver
-
 from locators.locators import AddRemoveElementsLocators
 from pages.base_page import BasePage
 

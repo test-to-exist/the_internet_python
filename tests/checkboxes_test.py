@@ -9,22 +9,29 @@ from tests.base_test_case import BaseTestCase
 
 class CheckboxesTest(BaseTestCase):
 
-    def check_if_checkbox_works(self, text):
-        checkboxes_page: Checkboxes = Checkboxes(self.driver)
-        if checkboxes_page.checkbox_is_checked(text):
-            checkboxes_page.click_checkbox(text)
-            assert not checkboxes_page.checkbox_is_checked(text)
-        else:
-            checkboxes_page.click_checkbox(text)
-            assert checkboxes_page.checkbox_is_checked(text)
+    def setUp(self) -> None:
+        super().setUp()
+        self.checkboxes_page = None
+        self.checkboxes_names = [
+            'checkbox 1',
+            'checkbox 2'
+        ]
 
-    def test_if_checkboxes_work(self):
+    def check_if_checkbox_works(self, text):
+
+        if self.checkboxes_page.checkbox_is_checked(text):
+            self.checkboxes_page.click_checkbox(text)
+            assert not self.checkboxes_page.checkbox_is_checked(text)
+        else:
+            self.checkboxes_page.click_checkbox(text)
+            assert self.checkboxes_page.checkbox_is_checked(text)
+
+    def test_checkboxes(self):
         main_page: MainPage = MainPage(self.driver)
         main_page.click_link(MainPageLocators.CHECKBOXES)
-        self.check_if_checkbox_works('checkbox 1')
-        time.sleep(1)
-        self.check_if_checkbox_works('checkbox 2')
-        time.sleep(1)
+        self.checkboxes_page: Checkboxes = Checkboxes(self.driver)
+        for name in self.checkboxes_names:
+            self.check_if_checkbox_works(name)
 
 
 if __name__ == '__main__':

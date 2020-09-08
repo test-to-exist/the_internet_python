@@ -1,6 +1,3 @@
-import requests
-from selenium.webdriver.remote.webelement import WebElement
-
 from locators.locators import BrokenImagesLocators
 from pages.base_page import BasePage
 

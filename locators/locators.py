@@ -17,7 +17,7 @@ class BrokenImagesLocators:
 
 
 class CheckboxesPageLocators:
-    CHECKBOXES = (By.CSS_SELECTOR, "input[type='checkbox']")
+    # CHECKBOXES_NAMES = (By.XPATH, "//input[@type='checkbox']")
 
     @staticmethod
     def get_checkbox_with_inner_text(inner_text: str):
