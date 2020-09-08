@@ -11,12 +11,18 @@ class AddRemoveElementsTest(BaseTestCase):
 
     def test_add_remove_elements(self):
         main_page = MainPage(self.driver)
-        main_page.go_to_page(MainPageLocators.ADD_REMOVE_ELEMENTS)
+        main_page.click_link(MainPageLocators.ADD_REMOVE_ELEMENTS)
 
         add_remove_elements_page = AddRemoveElements(self.driver)
-        add_remove_elements_page.click_add_element_btn(10)
+        nb_clicks = 7
+        for i in range(0, nb_clicks):
+            add_remove_elements_page.click_add_element_btn()
         time.sleep(1)
-        add_remove_elements_page.click_all_delete_buttons()
+        assert add_remove_elements_page.get_delete_btn_nb() == nb_clicks
+
+        for i in range(0, nb_clicks):
+            add_remove_elements_page.click_delete_button()
+        assert add_remove_elements_page.get_delete_btn_nb() == 0
 
 
 if __name__ == '__main__':

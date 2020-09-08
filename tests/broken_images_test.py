@@ -10,7 +10,7 @@ class BrokenImagesTest(BaseTestCase):
 
     def test_broken_images(self):
         main_page = MainPage(self.driver)
-        main_page.go_to_page(MainPageLocators.BROKEN_IMAGES)
+        main_page.click_link(MainPageLocators.BROKEN_IMAGES)
 
         broken_images_page = BrokenImages(self.driver)
         broken_images_page.check_broken_images()

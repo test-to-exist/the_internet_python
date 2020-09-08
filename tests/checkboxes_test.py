@@ -20,7 +20,7 @@ class CheckboxesTest(BaseTestCase):
 
     def test_if_checkboxes_work(self):
         main_page: MainPage = MainPage(self.driver)
-        main_page.go_to_page(MainPageLocators.CHECKBOXES)
+        main_page.click_link(MainPageLocators.CHECKBOXES)
         self.check_if_checkbox_works('checkbox 1')
         time.sleep(1)
         self.check_if_checkbox_works('checkbox 2')
