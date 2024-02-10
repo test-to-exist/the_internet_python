@@ -9,10 +9,9 @@ from tests.base_test_case import BaseTestCase
 class ChallengingDomTest(BaseTestCase):
     def test_first_button(self):
         main_page = MainPage(self.driver)
-        main_page.click_link(MainPageLocators.BROKEN_IMAGES)
+        main_page.click_link(MainPageLocators.CHALLENGING_DOM)
 
-        challenging_dom_page = ChallengingDom()
-        challenging_dom_page.click_first_button()
+        challenging_dom_page = ChallengingDom(self.driver)
         challenging_dom_page.click_first_button()
 
 
