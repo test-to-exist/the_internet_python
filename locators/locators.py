@@ -5,6 +5,7 @@ class MainPageLocators:
     ADD_REMOVE_ELEMENTS = (By.LINK_TEXT, 'Add/Remove Elements')
     BROKEN_IMAGES = (By.LINK_TEXT, 'Broken Images')
     CHECKBOXES = (By.LINK_TEXT, 'Checkboxes')
+    CHALLENGING_DOM = (By.LINK_TEXT, 'Challenging DOM')
 
 
 class AddRemoveElementsLocators:
@@ -22,3 +23,7 @@ class CheckboxesPageLocators:
     @staticmethod
     def get_checkbox_with_inner_text(inner_text: str):
         return By.XPATH, f"//input[@type='checkbox'][contains(normalize-space(following-sibling::text()),'{inner_text}')]"
+
+
+class ChallengingDomLocators:
+    FIRST_BUTTON = (By.CSS_SELECTOR, '.button:first-of-type')
