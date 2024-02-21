@@ -27,3 +27,4 @@ class CheckboxesPageLocators:
 
 class ChallengingDomLocators:
     FIRST_BUTTON = (By.CSS_SELECTOR, '.button:first-of-type')
+    EDIT_BUTTONS = (By.LINK_TEXT, 'edit')
