@@ -5,4 +5,8 @@ from pages.base_page import BasePage
 class BrokenImages(BasePage):
 
     def get_images_links(self):
-        return map(lambda el: el.get_attribute('src'), self.driver.find_elements(*BrokenImagesLocators.EXAMPLE_IMAGES))
+        images = self.driver.find_elements(*BrokenImagesLocators.EXAMPLE_IMAGES)
+        res = []
+        for img in images:
+            res.append(img.get_attribute('src'))
+        return res

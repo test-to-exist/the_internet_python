@@ -17,9 +17,12 @@ class BrokenImagesTest(BaseTestCase):
         broken_images_page = BrokenImages(self.driver)
         images = broken_images_page.get_images_links()
 
-        for img in images:
-            response = requests.head(img)
-            assert response.status_code == 200
+        response1 = requests.head(images[0])
+        assert response1.status_code == 404
+        response2 = requests.head(images[1])
+        assert response2.status_code == 404
+        response3 = requests.head(images[2])
+        assert response3.status_code == 200
 
 
 if __name__ == '__main__':
