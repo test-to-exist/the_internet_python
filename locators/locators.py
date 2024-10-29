@@ -6,6 +6,7 @@ class MainPageLocators:
     BROKEN_IMAGES = (By.LINK_TEXT, 'Broken Images')
     CHECKBOXES = (By.LINK_TEXT, 'Checkboxes')
     CHALLENGING_DOM = (By.LINK_TEXT, 'Challenging DOM')
+    CONTEXT_MENU = (By.LINK_TEXT, 'Context Menu')
 
 
 class AddRemoveElementsLocators:
