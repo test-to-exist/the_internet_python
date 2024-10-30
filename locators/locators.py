@@ -7,6 +7,8 @@ class MainPageLocators:
     CHECKBOXES = (By.LINK_TEXT, 'Checkboxes')
     CHALLENGING_DOM = (By.LINK_TEXT, 'Challenging DOM')
     CONTEXT_MENU = (By.LINK_TEXT, 'Context Menu')
+    DISAPPEARING_ELEMENTS = (By.LINK_TEXT, 'Disappearing Elements')
+    HEADER = (By.XPATH,'//h1[contains(text(),"Welcome to the-internet")]')
 
 
 class AddRemoveElementsLocators:
@@ -19,8 +21,6 @@ class BrokenImagesLocators:
 
 
 class CheckboxesPageLocators:
-    # CHECKBOXES_NAMES = (By.XPATH, "//input[@type='checkbox']")
-
     @staticmethod
     def get_checkbox_with_inner_text(inner_text: str):
         return By.XPATH, f"//input[@type='checkbox'][contains(normalize-space(following-sibling::text()),'{inner_text}')]"
@@ -29,3 +29,9 @@ class CheckboxesPageLocators:
 class ChallengingDomLocators:
     FIRST_BUTTON = (By.CSS_SELECTOR, '.button:first-of-type')
     EDIT_BUTTONS = (By.LINK_TEXT, 'edit')
+
+class DisappearingElementsLocators:
+    ABOUT_PAGE_HEADER = (By.XPATH, '//h1[contains(text(),"Not Found")]')
+    CONTACT_US_PAGE_HEADER = (By.XPATH, '//h1[contains(text(),"Not Found")]')
+    GALLERY_PAGE_HEADER = (By.XPATH, '//h1[contains(text(),"Not Found")]')
+    PORTFOLIO_PAGE_HEADER = (By.XPATH, '//h1[contains(text(),"Not Found")]')

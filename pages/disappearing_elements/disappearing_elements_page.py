@@ -1,16 +1,11 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webdriver import WebDriver
 
-
 from pages.base_page import BasePage
-
-from pages.main_page import MainPage
-from pages.disappearing_elements.contact_us_page import ContactUsPage
 from pages.disappearing_elements.about_page import AboutPage
+from pages.disappearing_elements.contact_us_page import ContactUsPage
 from pages.disappearing_elements.portfolio_page import PortfolioPage
-
+from pages.main_page import MainPage
 
 
 class DisappearingElementsPage(BasePage):
